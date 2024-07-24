@@ -1,4 +1,4 @@
-# Lending dApp on the Core Network
+# Launching a 10K NFT collection on the Core Network
 
 ## Pre-requisites
 Following are the pre-requisites tools that you'll need: 
