@@ -6,7 +6,6 @@ Following are the pre-requisites tools that you'll need:
 - [Visual Studio Code (VSCode)](https://visualstudio.microsoft.com/) 
 - [Git](https://git-scm.com/)
 - [Metamask](https://metamask.io/)
-- [IPFS & Pinata](https://pinata.cloud/)
 
 ## Configure Git CLI
 - Open your favorite terminal.
