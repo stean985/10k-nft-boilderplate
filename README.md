@@ -30,5 +30,5 @@ Following are the pre-requisites tools that you'll need:
 
 - Navigate to react app by running `cd ../frontend ` if you are in the backend folder.
 - Install dependencies using `npm install`.
-- Copy the .json files containing the ABI from _./artifacts/contracts_. You'll need to copy the `NFT.json` file to `interface/src/ABI/` folder.
+- Copy the .json files containing the ABI from _./artifacts/contracts_. You'll need to copy the `CoreNFT.json` file to `interface/src/ABI/` folder.
 - Run the frontend using `npm  start`.
