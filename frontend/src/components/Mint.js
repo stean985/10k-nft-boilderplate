@@ -10,7 +10,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { useWallet } from '../WalletContext';
-import ABI from '../ABI/ERC721.json'
+import ABI from '../ABI/CoreNFT.json'
 import { ethers } from 'ethers';
 
 function Mint() {
