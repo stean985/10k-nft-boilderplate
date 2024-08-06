@@ -10,15 +10,16 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { useWallet } from '../WalletContext';
-import ABI from '../ABI/CoreNFT.json'
+import ABI from '../ABI/ERC721.json'
 import { ethers } from 'ethers';
 
 function Mint() {
   const {address} = useParams();
   const [nftInfo, setNftInfo] = useState(null);
   const toast = useToast();
-  const {account, signer} = useWallet();
+  const {account, signer, provider} = useWallet();
   const [minted, setMinted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -38,7 +39,7 @@ function Mint() {
     };
 
     fetchNftInfo();
-  }, [address, minted]);
+  }, [address, minted, toast]);
 
   const handleMint = async () => {
     if (!account) {
@@ -54,9 +55,14 @@ function Mint() {
 
     try {
       setMinted(false);
-      const contract = new ethers.Contract(address, ABI.abi, signer);
-      const tx = await contract.safeMint(account, {gasLimit: 100000});
-      tx.wait();
+      setLoading(true);
+   
+      const contract = new ethers.Contract(address, ABI.abi, signer);   
+      console.log(contract);
+
+      console.log(account);
+      const tx = await contract.safeMint(account);
+      await tx.wait();
       toast({
         title: 'Success',
         description: 'NFT minted successfully!',
@@ -75,6 +81,7 @@ function Mint() {
       });
     } finally {
         setMinted(true);
+        setLoading(false);
     }
   };
 
@@ -105,6 +112,8 @@ function Mint() {
         size="lg"
         onClick={handleMint}
         width="100%"
+        loadingText="Minting..."
+        isLoading={loading}
       >
         Mint NFT
       </Button>
